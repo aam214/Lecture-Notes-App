@@ -12,8 +12,8 @@ body{
 }
 h1{
 text-align: center;
-background-color: #3DD1E7;
-padding: 20px 30px 50px 10px;
+font-size: 80px;
+color: #dddddd;
 margin-top: 20px;
 }
 .app{
@@ -43,15 +43,22 @@ margin-top: 20px;
   font-size: 1.5em;
   flex-direction: column;
   margin: 0 auto;
-  padding: 30px 60px;
+
   max-width: 900px;
   flex-grow: 1;
+}
+.notes-body,.title-input{
+  border: none;
+  font-size: 1.5em;
+  border-radius: 7px;
+  outline: none;
+  width: 100%;
 }
 .notes-body{
   min-height: 100vh;
   font-size: 1.0em;
   line-height: 1.5;
-  margin-top:20px;
+  margin-top:10px;
 }
 
 .button-53 {
