@@ -21,10 +21,7 @@ margin-top: 20px;
   height: 100%;
 }
 .side-bar{
-  border-right: 2px solid #dddddd;
-  flex-shrink: 0;
-
-  overflow-y: auto;
+  border-right: 3px solid #dddddd;
   padding: 1em;
   width: 470px;
 }
@@ -54,6 +51,7 @@ margin-top: 20px;
   opacity: 0.8;
 }
 .preview{
+  border-right: 3px solid #dddddd;
   display: flex;
   font-size: 1.5em;
   flex-direction: column;
@@ -64,6 +62,7 @@ margin-top: 20px;
 .notes-body,.title-input{
   border: none;
   font-size: 1.5em;
+  margin-top: -150px;
   border-radius: 7px;
   border-left: 9px solid#3DD1E7;;
   outline: none;

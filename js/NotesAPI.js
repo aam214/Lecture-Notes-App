@@ -1,18 +1,20 @@
 export default class NotesAPI {
   
-  static grabNotes() {
+  static showArchivedNotes() {
   const notes = JSON.parse(localStorage.getItem("items") || "[]");
-  return notes;
+  return notes.sort((x,y) =>{
+    return new Date (x.updated) > new Date (y.updated) ? -1 : 1;
+  });
   
   }
 
 static saveNote(save){
-const notes = NotesAPI.getAllNotes();
+const notes = NotesAPI.showArchivedNotes();
 notes.push(save);
 
-save.id = Math.floor(Math.random() * 1000);
+save.id = Math.floor(Math.random() * 1000000);
 save.updated = new Date().toISOString();
-localStorage.setItem( items, JSON.stringify(notes));
+localStorage.setItem("items", JSON.stringify(notes));
 }
 
 
