@@ -8,17 +8,26 @@ export default class NotesAPI {
   
   }
 
-static saveNote(save){
+static saveNote(toBeSaved){
 const notes = NotesAPI.showArchivedNotes();
-notes.push(save);
+const chronicled = notes.find(note => note.id = toBeSaved.id);
+  if (chronicled){
+chronicled.title = toBeSaved.title;
+chronicled.body = toBeSaved.body;
+chronicled.updated = new Date().toISOString();
+} else {
+  toBeSaved.id = Math.floor(Math.random() * 1000000);
+  toBeSaved.updated = new Date().toISOString();
+  notes.push(toBeSaved);
+}
 
-save.id = Math.floor(Math.random() * 1000000);
-save.updated = new Date().toISOString();
 localStorage.setItem("items", JSON.stringify(notes));
 }
 
 
 static removeNote(id){
-
+  const notes = NotesAPI.showArchivedNotes();
+  const newNotes = notes.filter(note => note.id != id);
+  localStorage.setItem("items", JSON.stringify(newNotes));
 }
 }
