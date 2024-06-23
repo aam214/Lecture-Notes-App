@@ -10,7 +10,7 @@ export default class NotesAPI {
 
 static saveNote(toBeSaved){
 const notes = NotesAPI.showArchivedNotes();
-const chronicled = notes.find(note => note.id = toBeSaved.id);
+const chronicled = notes.find(note => note.id ==toBeSaved.id);
   if (chronicled){
 chronicled.title = toBeSaved.title;
 chronicled.body = toBeSaved.body;
