@@ -22,7 +22,7 @@ export default class NotesUI{
     const titleEnter = this.root.querySelector(".title-input");
     const inputBody = this.root.querySelector(".notes-body");
 
-    addNotebutton.eventListener("click", () =>{
+    addNotebutton.addEventListener("click", () =>{
       this.onAdd();
     });
 
