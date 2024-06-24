@@ -51,18 +51,15 @@ margin-top: 20px;
   opacity: 0.8;
 }
 .preview{
-  border-right: 3px solid #dddddd;
-  display: flex;
+display: block;
   font-size: 1.5em;
-  flex-direction: column;
-  margin: 0 auto;
+  margin-top: 20px;
   max-width: 700px;
-  flex-grow: 1;
+ margin-left: 220px;
 }
 .notes-body,.title-input{
   border: none;
   font-size: 1.5em;
-  margin-top: -150px;
   border-radius: 7px;
   border-left: 9px solid#3DD1E7;;
   outline: none;
