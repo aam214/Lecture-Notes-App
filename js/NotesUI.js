@@ -34,5 +34,19 @@ export default class NotesUI{
       this.onEdit(newTitle, newBody);
       });
     });
-  }
+  } 
+  // Hide sidebar by default
+sidebarList(id, title, body, updated) {
+  const maxBodyLength = 60;
+
+  return `<div class="select-notes" select-note-id ="${id}">
+  <div class="list-title">${title}</div>
+  <div class="list-body">
+  ${body.substring(0, maxBodyLength)}
+  ${body.length > maxBodyLength ? "..." : ""}
+  </div>
+  <div class="list-time-stamp">${updated}</div>
+  </div>
+ `;
+}
 }
