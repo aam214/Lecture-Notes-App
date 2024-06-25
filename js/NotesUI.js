@@ -34,6 +34,7 @@ export default class NotesUI{
       this.onEdit(newTitle, newBody);
       });
     });
+    console.log(this.sidebarList(400, "Biology", "Birds are related to dinosaurs.", new Date()));
   } 
   // Hide sidebar by default
 sidebarList(id, title, body, updated) {
@@ -45,7 +46,9 @@ sidebarList(id, title, body, updated) {
   ${body.substring(0, maxBodyLength)}
   ${body.length > maxBodyLength ? "..." : ""}
   </div>
-  <div class="list-time-stamp">${updated}</div>
+  <div class="list-time-stamp">
+  ${updated.toLocaleString(undefined, {dateStyle: "full", timeStyle: "short"})}
+  </div>
   </div>
  `;
 }
