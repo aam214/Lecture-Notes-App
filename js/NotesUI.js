@@ -18,23 +18,23 @@ export default class NotesUI{
    
     `;
   
-    const addNotebutton =this.root.querySelector(".button-53");
-    const titleEnter = this.root.querySelector(".title-input");
-    const inputBody = this.root.querySelector(".notes-body");
+  const addNotebutton =this.root.querySelector(".button-53");
+  const titleEnter = this.root.querySelector(".title-input");
+  const inputBody = this.root.querySelector(".notes-body");
 
     addNotebutton.addEventListener("click", () =>{
-      this.onAdd();
+    this.onAdd();
     });
 
     [titleEnter, inputBody].forEach(inputNow => {
-      inputNow.addEventListener("blur", () => {
-      const newTitle = titleEnter.value.trim();
-      const newBody = inputBody.value.trim();
+    inputNow.addEventListener("blur", () => {
+    const newTitle = titleEnter.value.trim();
+    const newBody = inputBody.value.trim();
      
-      this.onEdit(newTitle, newBody);
+    this.onEdit(newTitle, newBody);
       });
     });
-    console.log(this.sidebarList(400, "Biology", "Birds are related to dinosaurs.", new Date()));
+  console.log(this.sidebarList(400, "Biology", "Birds are related to dinosaurs.", new Date()));
   } 
   // Hide sidebar by default
 sidebarList(id, title, body, updated) {
@@ -51,5 +51,15 @@ sidebarList(id, title, body, updated) {
   </div>
   </div>
  `;
+}
+//Update notes in the sidebar
+updateSidebar(notes){
+const selectNotesContainer = this.root.querySelector(".select-notes");
+
+selectNotesContainer.innerHTML = '';
+for(const note of notes) {
+const html = this.sidebarList(note.id, note.title, note.body, new Date(note.updated))
+selectNotesContainer.insertAdjacentHTML("beforeend", html);
+}
 }
 }
