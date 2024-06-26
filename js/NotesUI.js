@@ -40,7 +40,7 @@ export default class NotesUI{
 _sidebarList(id, title, body, updated) {
   const MAX_BODY_LENGTH = 50;
   return `
-  <div class="select-notes" select-note-id="${id}">
+  <div class="select-notes-item" select-note-id="${id}">
   <div class="list-title">${title}</div>
   <div class="list-body">
   ${body.substring(0, MAX_BODY_LENGTH)}
@@ -60,5 +60,6 @@ for (const note of notes) {
 const html = this._sidebarList(note.id, note.title, note.body, new Date(note.updated));
 noteList.insertAdjacentHTML("beforeend", html);
 }
+//Delete event for list item.
 }
 }
