@@ -22,7 +22,7 @@ export default class NotesUI{
   const titleEnter = this.root.querySelector(".title-input");
   const inputBody = this.root.querySelector(".notes-body");
 
-    addNotebutton.addEventListener("click", () =>{
+    addNotebutton.addEventListener("click", () => {
     this.onAdd();
     });
 
@@ -31,35 +31,34 @@ export default class NotesUI{
     const newTitle = titleEnter.value.trim();
     const newBody = inputBody.value.trim();
      
-    this.onEdit(newTitle, newBody);
+  this.onEdit(newTitle, newBody);
       });
     });
-  console.log(this.sidebarList(400, "Biology", "Birds are related to dinosaurs.", new Date()));
+  
   } 
-  // Hide sidebar by default
-sidebarList(id, title, body, updated) {
-  const maxBodyLength = 60;
 
-  return `<div class="select-notes" select-note-id ="${id}">
+_sidebarList(id, title, body, updated) {
+  const MAX_BODY_LENGTH = 50;
+  return `
+  <div class="select-notes" select-note-id="${id}">
   <div class="list-title">${title}</div>
   <div class="list-body">
-  ${body.substring(0, maxBodyLength)}
-  ${body.length > maxBodyLength ? "..." : ""}
+  ${body.substring(0, MAX_BODY_LENGTH)}
+  ${body.length > MAX_BODY_LENGTH ? "..." : ""}
   </div>
   <div class="list-time-stamp">
   ${updated.toLocaleString(undefined, {dateStyle: "full", timeStyle: "short"})}
   </div>
-  </div>
  `;
 }
 //Update notes in the sidebar
-updateSidebar(notes){
-const selectNotesContainer = this.root.querySelector(".select-notes");
+updateSidebar(notes) {
+const noteList = this.root.querySelector(".note-list");
 
-selectNotesContainer.innerHTML = '';
-for(const note of notes) {
-const html = this.sidebarList(note.id, note.title, note.body, new Date(note.updated))
-selectNotesContainer.insertAdjacentHTML("beforeend", html);
+noteList.innerHTML = "";
+for (const note of notes) {
+const html = this._sidebarList(note.id, note.title, note.body, new Date(note.updated));
+noteList.insertAdjacentHTML("beforeend", html);
 }
 }
 }
